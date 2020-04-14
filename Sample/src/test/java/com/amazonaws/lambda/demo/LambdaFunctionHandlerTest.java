@@ -46,6 +46,6 @@ public class LambdaFunctionHandlerTest {
         String output = handler.handleRequest(input, ctx);
 
         // TODO: validate output here if needed.
-        Assert.assertEquals("AFS_1001", output);
+        Assert.assertEquals("AGILITY_KEY_LA_1001", output);
     }
 }

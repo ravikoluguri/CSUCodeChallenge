@@ -40,23 +40,36 @@ public class LambdaFunctionHandler implements RequestHandler<inputPOJO, String> 
 			int telematicsVersion = Integer.parseInt(input.gettelematics_Version());
 			if(getTelematicsVersion.equalsIgnoreCase("1001"))
 			{
+				context.getLogger().log("Output: "+ this.keyhashMap.get("1001"));
 				return this.keyhashMap.get("1001");
 			}
 			else if(telematicsVersion>1001)
 			{
 				String productkey = productID.concat("_").concat("1001");
 				if(this.keyhashMap.get(productkey)!=null)
+				{
+					context.getLogger().log("Output: "+ this.keyhashMap.get(productkey));
 					return this.keyhashMap.get(productkey);
+				}
 				else
+				{
+					context.getLogger().log("Output: "+ this.keyhashMap.get("1001"));
 					return this.keyhashMap.get("1001");
+				}
 			}
 			else if(telematicsVersion<1000)
 			{
 				String productkey = productID.concat("_").concat("1000");
 				if(this.keyhashMap.get(productkey)!=null)
+				{
+					context.getLogger().log("Output: "+ this.keyhashMap.get(productkey));
 					return this.keyhashMap.get(productkey);
+				}
 				else
+				{
+					context.getLogger().log("Output: "+ this.keyhashMap.get("1000"));
 					return this.keyhashMap.get("1000");
+				}
 			}
 			else 
 				return this.keyhashMap.get("1000");
